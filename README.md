@@ -32,7 +32,7 @@ This app is inspired by the classic **Show Hidden Files** utility published by [
 
 ## Download
 
-Get `ShowHiddenFiles-<version>-universal.zip` from the [latest release](https://github.com/sineld/show-hidden-files/releases/latest), unzip it and move **Show Hidden Files.app** to your Applications folder. The app is signed with a Developer ID and notarized by Apple, so it opens without Gatekeeper warnings.
+Get `ShowHiddenFiles-<version>-universal.dmg` from the [latest release](https://github.com/sineld/show-hidden-files/releases/latest), open it and drag **Show Hidden Files** onto the Applications folder. A `.zip` is also available. The app is signed with a Developer ID and notarized by Apple, so it opens without Gatekeeper warnings.
 
 ## Build from source
 
@@ -51,7 +51,7 @@ To make a signed and notarized release archive, use an App Store Connect API key
 ```bash
 SIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)" \
 NOTARY_KEY_ID=XXXXXXXXXX NOTARY_ISSUER=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-./release.sh                  # → build/ShowHiddenFiles-<version>-universal.zip
+./release.sh                  # → build/ShowHiddenFiles-<version>-universal.{dmg,zip}
 ```
 
 ## How it works
@@ -72,9 +72,9 @@ Sources/ShowHiddenFiles/
 ├── ContentView.swift             # Main window and state
 ├── DropTextView.swift            # Drag-and-drop list area
 └── FileVisibilityService.swift   # Visibility and Finder operations
-Resources/                        # Info.plist, icon and the script that draws it
+Resources/                        # Info.plist, icon, DMG background and the scripts that draw them
 build-app.sh                      # Builds and signs the Universal .app
-release.sh                        # Signs, notarizes and zips a release
+release.sh                        # Signs and notarizes the release .dmg and .zip
 ```
 
 ## Contributing
@@ -108,7 +108,7 @@ Bu uygulama, [GoToes.org](https://gotoes.org/sales/ShowHiddenFilesMacOSX/) taraf
 
 ### İndirme
 
-[Son sürüm](https://github.com/sineld/show-hidden-files/releases/latest) sayfasından `ShowHiddenFiles-<sürüm>-universal.zip` dosyasını indirin, açın ve **Show Hidden Files.app** uygulamasını Uygulamalar klasörüne taşıyın. Uygulama Developer ID ile imzalı ve Apple tarafından onaylı (notarized) olduğu için Gatekeeper uyarısı olmadan açılır.
+[Son sürüm](https://github.com/sineld/show-hidden-files/releases/latest) sayfasından `ShowHiddenFiles-<sürüm>-universal.dmg` dosyasını indirin, açın ve **Show Hidden Files** simgesini Uygulamalar klasörünün üzerine sürükleyin. İsterseniz `.zip` sürümü de var. Uygulama Developer ID ile imzalı ve Apple tarafından onaylı (notarized) olduğu için Gatekeeper uyarısı olmadan açılır.
 
 ### Kaynaktan derleme
 

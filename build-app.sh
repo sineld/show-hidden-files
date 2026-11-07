@@ -22,6 +22,11 @@ if [[ -f "Resources/AppIcon.icns" ]]; then
     cp "Resources/AppIcon.icns" "${APP_BUNDLE}/Contents/Resources/AppIcon.icns"
 fi
 
-codesign --force --deep --sign - "${APP_BUNDLE}"
+# SIGN_IDENTITY="Developer ID Application: …" signs for distribution; default is a local ad-hoc signature.
+if [[ -n "${SIGN_IDENTITY:-}" ]]; then
+    codesign --force --options runtime --timestamp --sign "${SIGN_IDENTITY}" "${APP_BUNDLE}"
+else
+    codesign --force --sign - "${APP_BUNDLE}"
+fi
 
 echo "Built app bundle at: $(pwd)/${APP_BUNDLE}"
